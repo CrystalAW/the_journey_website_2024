@@ -151,7 +151,10 @@ app.get('/calendar', async (req, res) => {
     }
 });
 
-
+app.get('/', (req, res) => {
+    res.redirect('/login');
+  });
+  
 
 app.get('/calendar/events', async (req, res) => {
     const now = new Date();  // Current date
