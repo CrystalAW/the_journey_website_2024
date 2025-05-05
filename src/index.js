@@ -324,8 +324,8 @@ app.post('/calendar', async (req, res) => {
 });
 
 app.delete('/calendar', async (req, res) => {
-	const decoded = await decodeToken(req.session.authToken);
-	const userId = decoded.userId;
+    const decoded = await decodeToken(req.session.authToken);
+    const userId = decoded.userId;
     const eventId = req.body.eventId;  // Get the event ID from the request body
 
     if (!userId) {
@@ -354,7 +354,8 @@ app.delete('/calendar', async (req, res) => {
 });
 
 app.delete('/journal', async (req, res) => {
-    const userId = req.session.userId;
+    const decoded = await decodeToken(req.session.authToken);
+    const userId = decoded.userId;
     const entryId = req.body.entryId;
 
     if(!userId) {
